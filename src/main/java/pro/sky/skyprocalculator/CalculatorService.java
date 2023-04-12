@@ -25,5 +25,6 @@ public class CalculatorService {
             return ("Делить на 0 нельзя");
         }
         return num1 + " / " + num2 + " = " + (num1 / num2);
+
     }
 }
