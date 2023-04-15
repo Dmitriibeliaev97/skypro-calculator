@@ -8,19 +8,19 @@ public class CalculatorService {
         return "<b>Добро пожаловать в калькулятор</b>";
     }
 
-    public double sum(double num1, double num2) {
+    public Double sum(Double num1, Double num2) {
         return num1 + num2;
     }
 
-    public double minus(double num1, double num2) {
+    public Double minus(Double num1, Double num2) {
         return num1 - num2;
     }
 
-    public double multiply(double num1, double num2) {
+    public Double multiply(Double num1, Double num2) {
         return num1 * num2;
     }
 
-    public double divide(double num1, double num2) {
+    public Double divide(Double num1, Double num2) {
         return num1 / num2;
 
     }
