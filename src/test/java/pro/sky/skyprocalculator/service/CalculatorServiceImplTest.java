@@ -18,31 +18,35 @@ class CalculatorServiceImplTest {
     @BeforeEach
     public void setUp() {
         x = 5;
-        y = 0;
+        y = 5;
     }
 
     @Test
     public void testSum() {
-        assertNotNull(x);
-        assertNotNull(y);
+        Integer result = out.sum(5, 5);
+        assertEquals(x + y, result);
     }
 
     @Test
     public void testMinus() {
-        assertNotNull(x);
-        assertNotNull(y);
+        Integer result = out.minus(5, 5);
+        assertEquals(x - y, result);
     }
 
     @Test
     public void testMultiply() {
-        assertNotNull(x);
-        assertNotNull(y);
+        Integer result = out.multiply(5, 5);
+        assertEquals(x * y, result);
     }
 
     @Test
     public void testDivide() {
-        assertNotNull(x);
-        assertNotNull(y);
-        assertThrows(DivisionByZero.class, () -> out.divide(x, y));
+        Double result = out.divide(5, 5);
+        assertEquals(x / y, result);
+    }
+
+    @Test
+    public void tesDivideByZero() {
+        assertThrows(DivisionByZero.class, () -> out.divide(5, 0));
     }
 }

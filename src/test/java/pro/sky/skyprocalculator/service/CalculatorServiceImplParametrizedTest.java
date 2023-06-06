@@ -13,6 +13,7 @@ class CalculatorServiceImplParametrizedTest {
     private final CalculatorServiceImpl out = new CalculatorServiceImpl();
     static Integer x = 5;
     static Integer y = 5;
+
     public static Stream<Arguments> paramsForTests() {
         return Stream.of(
                 Arguments.of(x, y)
@@ -22,28 +23,28 @@ class CalculatorServiceImplParametrizedTest {
     @ParameterizedTest
     @MethodSource("paramsForTests")
     public void sum(Integer x, Integer y) {
-        assertNotNull(x);
-        assertNotNull(y);
+        Integer result = out.sum(5, 5);
+        assertEquals(x + y, result);
     }
 
     @ParameterizedTest
     @MethodSource("paramsForTests")
     public void minus(Integer x, Integer y) {
-        assertNotNull(x);
-        assertNotNull(y);
+        Integer result = out.minus(5, 5);
+        assertEquals(x - y, result);
     }
 
     @ParameterizedTest
     @MethodSource("paramsForTests")
     public void multiply(Integer x, Integer y) {
-        assertNotNull(x);
-        assertNotNull(y);
+        Integer result = out.multiply(5, 5);
+        assertEquals(x * y, result);
     }
 
     @ParameterizedTest
     @MethodSource("paramsForTests")
     public void divide(Integer x, Integer y) {
-        assertNotNull(x);
-        assertNotNull(y);
+        Double result = out.divide(5, 5);
+        assertEquals(x / y, result);
     }
 }
