@@ -10,41 +10,47 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorServiceImplParametrizedTest {
-    private final CalculatorServiceImpl out = new CalculatorServiceImpl();
-    static Integer x = 5;
-    static Integer y = 5;
+    private final CalculatorServiceImpl calculatorService = new CalculatorServiceImpl();
 
     public static Stream<Arguments> paramsForTests() {
         return Stream.of(
-                Arguments.of(x, y)
+                Arguments.of(5, 5),
+                Arguments.of(5, 10),
+                Arguments.of(10, 5),
+                Arguments.of(15, 25),
+                Arguments.of(-5, 55)
         );
     }
 
     @ParameterizedTest
     @MethodSource("paramsForTests")
     public void sum(Integer x, Integer y) {
-        Integer result = out.sum(5, 5);
-        assertEquals(x + y, result);
+        Integer exxpectedSum = x + y;
+        Integer actualSum = calculatorService.sum(x, y);
+        assertEquals(exxpectedSum, actualSum);
     }
 
     @ParameterizedTest
     @MethodSource("paramsForTests")
     public void minus(Integer x, Integer y) {
-        Integer result = out.minus(5, 5);
-        assertEquals(x - y, result);
+        Integer expectedMinus = x - y;
+        Integer actualMinus = calculatorService.minus(x, y);
+        assertEquals(expectedMinus, actualMinus);
     }
 
     @ParameterizedTest
     @MethodSource("paramsForTests")
     public void multiply(Integer x, Integer y) {
-        Integer result = out.multiply(5, 5);
-        assertEquals(x * y, result);
+        Integer expectedMultiply = x * y;
+        Integer actualMultiply = calculatorService.multiply(x, y);
+        assertEquals(expectedMultiply, actualMultiply);
     }
 
     @ParameterizedTest
     @MethodSource("paramsForTests")
     public void divide(Integer x, Integer y) {
-        Double result = out.divide(5, 5);
-        assertEquals(x / y, result);
+        Integer expectedDivide = x / y;
+        Integer actualDivide = calculatorService.divide(x, y);
+        assertEquals(expectedDivide, actualDivide);
     }
 }

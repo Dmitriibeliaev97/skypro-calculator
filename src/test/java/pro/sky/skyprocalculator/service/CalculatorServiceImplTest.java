@@ -41,7 +41,8 @@ class CalculatorServiceImplTest {
 
     @Test
     public void testDivide() {
-        Double result = out.divide(5, 5);
+        Integer result = out.divide(5, 5);
+        result = out.divide(5, 5);
         assertEquals(x / y, result);
     }
 
